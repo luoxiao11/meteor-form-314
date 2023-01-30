@@ -8,6 +8,7 @@ const StudentDataValues = {
   hobbies: ['Surfing', 'Running', 'Biking', 'Paddling'],
   levels: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
   majors: ['Physics', 'Math', 'Chemistry', 'Computer Science'],
+  instructors: ['Philip Johnson', 'Cam Moore'],
 };
 
 /** Define a schema to specify the structure of each document in the collection. */
@@ -15,6 +16,7 @@ const StudentDataSchema = new SimpleSchema({
   name: String,
   email: String,
   bio: { type: String, optional: true, defaultValue: '' },
+  instructor: { type: String, allowedValues: StudentDataValues.instructors },
   hobbies: { type: Array, optional: true },
   'hobbies.$': { type: String, allowedValues: StudentDataValues.hobbies },
   level: { type: String, allowedValues: StudentDataValues.levels },
